@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>node.js - API</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="node-api">
+		<div class="node-nav">
+			<div class="logo"><a href="#"><img src="images/nodejs-new-white-pantone.png" width='100' height='62' alt=""></a></div>
+			<li>
+				<h3>分类</h3>
+				<div class="node-nav-list">
+					<p id="nav-btn" for="urlParse">url.parse()</p>
+				</div>
+			</li>
+		</div>
+		<div class="node-con">
+			<div class="param" id="all"></div>
+			<div class="param" id="urlParse">
+				<h3>url.parse(url)</h3>
+				<h4>方法说明：
+					讲一个URL字符串转换成对象并返回。
+				</h4>
+				<ul>
+					<li>urlStr     url字符串</li>
+					<li>parseQueryString     为true时将使用查询模块分析查询字符串，默认为false
+					<li>
+						slashesDenoteHost<br>
+						默认为false，//foo/bar 形式的字符串将被解释成 { pathname: ‘//foo/bar' }<br>
+						如果设置成true，//foo/bar 形式的字符串将被解释成  { host: ‘foo', pathname: ‘/bar' }
+					</li>           
+
+
+				</ul>
+				<p>
+					var url = require('url');<br>
+					var a = url.parse('http://example.com:8080/one?a=index&t=article&m=default');<br>
+					console.log(a);<br>
+					  
+					//输出结果：<br>
+					{ <br>
+						protocol : 'http' ,<br>
+						auth : null ,<br>
+						host : 'example.com:8080' ,<br>
+						port : '8080' ,<br>
+						hostname : 'example.com' ,<br>
+						hash : null ,<br>
+						search : '?a=index&t=article&m=default',<br>
+						query : 'a=index&t=article&m=default',<br>
+						pathname : '/one',<br>
+						path : '/one?a=index&t=article&m=default',<br>
+						href : 'http://example.com:8080/one?a=index&t=article&m=default'<br>
+					}<br>
+				</p>
+			</div>
+			<div class="param" id="pathExtname">
+				<h3>path.extname(url)</h3>
+				<h4>方法说明：该方法属于path模块，使用前需要引入path模块require('path')</h4>
+				<ul>
+					<li>url:路径参数</li>
+				</ul>
+				<p>path.extname('index.html')</p>
+				<p>返回 '.html'</p>
+				<p>path.extname('index.')</p>
+				<p>返回 '.'</p>
+				<p>path.extname('index')</p>
+				<p>返回 ''</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
