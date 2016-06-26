@@ -19,14 +19,17 @@ require(['jquery','model'],function($,model){
 	var cityName = '';
 	//获取当前用户所在城市
 	$.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(_result) {
+		"use strict";  //符合ES5标准
         if (remote_ip_info.ret == '1') {
             cityName = remote_ip_info.city;
+            console.log(cityName);
         } else {
             alert('没有找到匹配的地址信息！');
         }
     });
 	//调用天气api接口
 	include(['http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=0&city='+encodeURI(cityName)+'&dfc=1&charset=utf-8'],function(){
+		"use strict";  //符合ES5标准
 		var swtherData = window.SWther.w[cityName][0];  //天气数据
 		console.log(swtherData);
 		$("#city-cell").addClass(swtherData.f1);
