@@ -11,7 +11,7 @@ app.listen(port);  //监听端口
 
 app.get('/index',function(req,res){
 	res.render('index',{ 
-		title : "Imooc 首页",
+		title : "Lmango - 前端小学生 - 个人博客",
 		news : [
 			{ 
 				title : "这是首页1"
