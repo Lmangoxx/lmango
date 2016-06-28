@@ -13,7 +13,7 @@ body {
 	position: fixed;
 	top: 25px;
 	left: 0;
-	z-index: 2;
+	z-index: 3;
 	width: 100%;
 	height: 50px;
 	-webkit-animation : header-c .5s ease-in;
@@ -98,7 +98,6 @@ body {
 .city-cell {
 	width: 100%;
 	min-height: 567px;
-	background-color: #59b2ac;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -106,6 +105,11 @@ body {
 	bottom: 0;
 	z-index: 1;
 }
+.qing,.duoyun {background-color: #59b2ac;}
+.leizhenyu {
+	background-image: -webkit-linear-gradient(top, rgb(57, 60, 64),rgb(120, 128, 146));
+}
+canvas#snow { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 2;}
 .city-box {
 	width: 1200px;
 	min-height: 500px;

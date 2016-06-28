@@ -1,13 +1,15 @@
 require.config({
 	paths: {
 		jquery : "lib/jquery-1.7.2.min",
-		model : "model/model"
+		model : "model/model",
+		let_it_snow : "lib/jquery.let_it_snow"
 	},
 	shim : {
-		"jquery" : { exports: 'jquery'}
+		"jquery" : { exports: 'jquery'},
+		"let_it_snow" : { exports: 'jquery'}
 	}
 });
-require(['jquery','model'],function($,model){
+require(['jquery','model','let_it_snow'],function($,model){
 	/**
 	 * city动画代码实现(根据实时城市天气情况更新页面动画效果)
 	 * @ 太阳、云朵运动、下雨、下雪等天气
@@ -69,6 +71,14 @@ require(['jquery','model'],function($,model){
 			"animation-delay" : (index*0.1) + "s"
 		});
 	});
+	//下雪
+	$('#snow').let_it_snow({
+		speed : 1,
+		interaction : false,
+		count : 200,
+		size : 1,
+		windPower : 7
+	});
 	/**
 	 * rand()获取随机数（整数|如果不是整数，判断并作转换）
 	 * @ param mi 区间最小值
@@ -111,5 +121,4 @@ require(['jquery','model'],function($,model){
 		b.length?b(c):(b(),c())};function s(b){var c,a;c=b.length;for(a=[];c--;a.unshift(b[c]));return a}
 		var f=document,e=f.getElementsByTagName("head")[0],l={},k=0,h=[],q="script",p="link",m;!d.pop&&(d=[d]);g=g||o;(function c(a,i,e,n){if(!f.body)return setTimeout(c,1);h=[].concat(s(f.getElementsByTagName(q)),s(f.getElementsByTagName(p)));for(a=h.length;a--;)(m=h[a].src||h[a].href)&&(l[m.split("/").pop()]=m);for(a=d.length;a--;)n=o,e=!1,d[a].pop?(i=d[a][0],n=d[a][1],e=d[a][2]):i=d[a],l[i.split("/").pop()]||j(i,n,e);!k&&g()})()
 	}
-    
 });

@@ -86,6 +86,9 @@ define(['jquery'],function($){
 					maxMove : 1200
 				}
 			]
-		]     //多云模版结束
+		],     //多云模版结束
+		"leizhenyu" : [
+			
+		]
 	}
 });
