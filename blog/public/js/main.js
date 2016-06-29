@@ -29,10 +29,12 @@ require(['jquery','model','let_it_snow'],function($,model){
     });
 	//调用天气api接口
 	include(['http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=0&city='+encodeURI(cityName)+'&dfc=1&charset=utf-8'],function(){
-		var swtherData = window.SWther.w[cityName][0];  //天气数据
-		console.log(swtherData);
-		$("#city-cell").addClass(swtherData.f1);
-		skyFun.init(model[swtherData.f1]);
+		setTimeout(function(){ 
+			var swtherData = window.SWther.w[cityName][0];  //天气数据
+			//console.log(swtherData);
+			$("#city-cell").addClass(swtherData.f1);
+			skyFun.init(model[swtherData.f1]);
+		},500);
 	});
 	var skyFun = {
 		init : function(model){
@@ -73,11 +75,11 @@ require(['jquery','model','let_it_snow'],function($,model){
 	});
 	//下雪
 	$('#snow').let_it_snow({
-		speed : 1,
+		speed : 7,
 		interaction : false,
 		count : 200,
-		size : 1,
-		windPower : 7
+		size : 0,
+		windPower : 0
 	});
 	/**
 	 * rand()获取随机数（整数|如果不是整数，判断并作转换）
