@@ -104,9 +104,12 @@ body {
 	right: 0;
 	bottom: 0;
 	z-index: 1;
-	background-color: #59b2ac;
+	background-color: rgba(114, 173, 224,.6);
+	/*background-color: #59b2ac;*/
 }
-.qing,.duoyun {background-color: #59b2ac;}
+.qing,.duoyun {
+	background-image: -webkit-linear-gradient(top, rgba(13, 104, 188,.5), rgba(114, 173, 224,.5));
+}
 .leizhenyu {
 	background-image: -webkit-linear-gradient(top, rgb(57, 60, 64),rgb(120, 128, 146));
 }
