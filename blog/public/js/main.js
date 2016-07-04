@@ -23,28 +23,34 @@ require(['jquery','model','let_it_snow'],function($,model){
 	$.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(_result) {
         if (remote_ip_info.ret == '1') {
             cityName = remote_ip_info.city;
+            //调用天气api接口
+			include(['http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=0&city='+encodeURI(cityName)+'&dfc=1&charset=utf-8'],function(){
+				if(window.SWther){ 
+					var swtherData = window.SWther.w[cityName][0];  //天气数据
+					console.log(swtherData);
+					$("#city-cell").addClass(swtherData.f1);
+					skyFun.init(model[swtherData.f1]);
+				}else{ 
+					swther();
+				}
+			});
         } else {
             alert('没有找到匹配的地址信息！');
         }
     });
-	//调用天气api接口
-	include(['http://php.weather.sina.com.cn/iframe/index/w_cl.php?code=js&day=0&city='+encodeURI(cityName)+'&dfc=1&charset=utf-8'],function(){
-		setTimeout(function(){ 
-			var swtherData = window.SWther.w[cityName][0];  //天气数据
-			//console.log(swtherData);
-			$("#city-cell").addClass(swtherData.f1);
-			skyFun.init(model[swtherData.f1]);
-		},500);
-	});
 	var skyFun = {
 		init : function(model){
 			"use strict";  //符合ES5标准
-			for(var i = 0, length = model.length; i < length; i++ ){
-				var m = model[i],
-					div = $('<div class="'+m[0]+'" id="'+m[0]+'" top="'+m[1].top+'" min-move="'+m[1].minMove+'" max-move="'+m[1].maxMove+'">');
-				$("#sky-box").append(div);
+			if(model[0][0] == 'canvas'){
+				$('#canvas').let_it_snow(model[0][1]);
+			}else{
+				for(var i = 0, length = model.length; i < length; i++ ){
+					var m = model[i],
+						div = $('<div class="'+m[0]+'" id="'+m[0]+'" top="'+m[1].top+'" min-move="'+m[1].minMove+'" max-move="'+m[1].maxMove+'">');
+					$("#sky-box").append(div);
+				}
+				this.upData();
 			}
-			this.upData();
 		},
 		upData : function(){
 			"use strict";  //符合ES5标准
@@ -74,13 +80,7 @@ require(['jquery','model','let_it_snow'],function($,model){
 		});
 	});
 	//下雪
-	$('#snow').let_it_snow({
-		speed : 7,
-		interaction : false,
-		count : 200,
-		size : 0,
-		windPower : 0
-	});
+	
 	/**
 	 * rand()获取随机数（整数|如果不是整数，判断并作转换）
 	 * @ param mi 区间最小值

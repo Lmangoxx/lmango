@@ -88,7 +88,19 @@ define(['jquery'],function($){
 			]
 		],     //多云模版结束
 		"leizhenyu" : [
-			
+			[
+				'canvas',
+				{ 
+					speed : 10,
+					interaction : false,
+					count : 200,
+					size : 0,
+					windPower : 0
+				}
+			]
+		],
+		"yin" : [
+			[]
 		]
 	}
 });
