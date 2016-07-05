@@ -79,8 +79,6 @@ require(['jquery','model','let_it_snow'],function($,model){
 			"animation-delay" : (index*0.1) + "s"
 		});
 	});
-	//下雪
-	
 	/**
 	 * rand()获取随机数（整数|如果不是整数，判断并作转换）
 	 * @ param mi 区间最小值

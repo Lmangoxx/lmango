@@ -117,6 +117,9 @@ body {
 .yin { 
 	background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
 }
+.mai {
+	background-image: -webkit-linear-gradient(top, rgb(72, 86, 99), rgb(161, 184, 202));
+}
 /*.yin { 
 	background-image: -webkit-linear-gradient(top, rgb(24, 50, 89), rgb(52, 130, 186));
 }*/
