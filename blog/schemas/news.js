@@ -36,13 +36,13 @@ NewsSchema.statics = {
 	fetch : function(cd){     //查询所以文章并按照更新时间排序
 		return this
 		.find({})
-		.sort('meta.updateAt');
-		exec(cd);
+		.sort('meta.updateAt')
+		.exec(cd);
 	},
 	findById : function(cd){  //根据Id查询文章
 		return this
-		.findOne({_id:id});
-		exec(cd);
+		.findOne({_id:id})
+		.exec(cd);
 	}
 };
 //把NewsSchema暴露出来
