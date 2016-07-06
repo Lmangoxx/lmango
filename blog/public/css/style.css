@@ -98,15 +98,25 @@ body {
 .city-cell {
 	width: 100%;
 	min-height: 567px;
+	max-height: 667px;
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	z-index: 1;
-	/*background-color: rgba(114, 173, 224,.6);*/
-	/*background-color: #59b2ac;*/
 	background-image: -webkit-linear-gradient(top, rgba(13, 104, 188,.5), rgba(114, 173, 224,.5));
+}
+.city-box {
+	width: 1200px;
+	min-height: 500px;
+	max-height: 600px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 67px;
+	margin: 0 auto;
 }
 .qing,.duoyun {
 	background-image: -webkit-linear-gradient(top, rgba(13, 104, 188,.5), rgba(114, 173, 224,.5));
@@ -124,16 +134,6 @@ body {
 	background-image: -webkit-linear-gradient(top, rgb(24, 50, 89), rgb(52, 130, 186));
 }*/
 canvas#canvas { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 2;}
-.city-box {
-	width: 1200px;
-	min-height: 500px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 67px;
-	margin: 0 auto;
-}
 #sky-box > div { position: absolute;}
 .cloud1 {
 	width: 111px;
