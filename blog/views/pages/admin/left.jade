@@ -1,2 +1,32 @@
-.admin-left-nav
-	h3 这里是导航
+.sidebar-menu.toggle-others.fixed
+	.sidebar-menu-inner
+		header.logo-env
+			.logo
+				a.logo-expanded(href="dashboard-1.html")
+					img(src="/static/images/assets/logo@2x.png",width="80",alt="")
+				a.logo-collapsed(href="dashboard-1.html")
+					img(src="/static/images/assets/logo-collapsed@2x.png",width="40",alt="")
+					
+			// This will toggle the mobile menu and will be visible only on mobile devices
+			.mobile-menu-toggle.visible-xs
+				a(href="#",data-toggle="user-info-menu")
+					i.fa-bell-o
+					span.badge.badge-success=7
+				
+				a(href="#",data-toggle="mobile-menu")
+					i.fa-bars
+			
+			// This will open the popup with user profile settings, you can use for any purpose, just be creative -->
+			.settings-icon
+				a(href="#",data-toggle="settings-pane",data-animate="true")
+					i.linecons-cog
+						
+		ul#main-menu.main-menu
+			li.active.opened.active
+				a(href="#")
+					i.linecons-cog
+					span.title 系统设置
+				ul
+					li.active
+						a(href="#")
+							span.title 关键字 

@@ -1,0 +1,59 @@
+nav.navbar.user-info-navbar(role="navigation")
+	ul.user-info-menu.left-links.list-inline.list-unstyled
+		li.hidden-sm.hidden-xs
+			a(href="#",data-toggle="sidebar")
+				i.fa-bars
+		li.dropdown.hover-line
+			a(href="#",data-toggle="dropdown")
+				i.fa-envelope-o
+				span.badge.badge-green 15
+				
+			ul.dropdown-menu.messages
+				li		
+					ul.dropdown-menu-list.list-unstyled.ps-scrollbar
+						li.active
+							a(href="#")
+								span.line
+									strong 路人甲
+									span.light.small - 昨天
+								span.line.desc.small
+									| 很高兴认识你，博主
+						li
+							a(href="#")
+								span.line
+									strong 路人乙
+									span.light.small - 2 天前
+								span.line.desc.small
+									| 网站做的不错，支持一个。
+				
+				li.external
+					a(href="blank-sidebar.html")
+						span 全部信息
+						i.fa-link-ext
+	
+	// Right links for user info navbar
+	ul.user-info-menu.right-links.list-inline.list-unstyled
+		li.search-form
+			form(method="get",action="extra-search.html")
+				input.form-control.search-field(type="text",name="s",placeholder="输入搜索内容...")
+				button.btn.btn-link(type="submit")
+					i.linecons-search
+		
+		li.dropdown.user-profile
+			a(href="#",data-toggle="dropdown")
+				img.img-circle.img-inline.userpic-32(src="/static/images/assets/user-4.png",alt="user-image",width="28")
+				span
+					| Lmango 
+					i.fa-angle-down
+			ul.dropdown-menu.user-profile-menu.list-unstyled
+				li
+					a(href="#settings")
+						i.fa-wrench
+						| 设置
+				li.last
+					a(href="extra-lockscreen.html")
+						i.fa-lock
+						| 退出
+		//li
+		//	a(href="#",data-toggle="chat")
+		//		i.fa-comments-o

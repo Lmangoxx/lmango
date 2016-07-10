@@ -1,0 +1,61 @@
+.settings-pane
+			
+	a(href="#",data-toggle="settings-pane",data-animate="true")
+		&times;
+	.settings-pane-inner
+		.row
+			.col-md-4
+				.user-info
+					.user-image
+						a(href="extra-profile.html")
+							img.img-responsive.img-circle(src="/static/images/assets/user-2.png")
+					.user-details
+						h3
+							a(href="extra-profile.html") John Smith
+							span.user-status.is-online
+						p.user-title Web Developer
+						.user-links
+							a.btn.btn-primary(href="extra-profile.html") Edit Profile
+							a.btn.btn-success(href="extra-profile.html") Upgrade
+			
+			.col-md-8.link-blocks-env
+				.links-block.left-sep
+					h4
+						span Notifications
+					
+					ul.list-unstyled
+						li
+							input.cbr.cbr-primary#sp-chk1(type="checkbox",checked="checked")
+							label(for="sp-chk1") Messages
+						li
+							input.cbr.cbr-primary#sp-chk2(type="checkbox",checked="checked")
+							label(for="sp-chk2") Events
+						li
+							input.cbr.cbr-primary#sp-chk3(type="checkbox",checked="checked")
+							label(for="sp-chk3") Updates
+						li
+							input.cbr.cbr-primary#sp-chk4(type="checkbox",checked="checked")
+							label(for="sp-chk4") Server Uptime
+				
+				.links-block.left-sep
+					h4
+						a(href="#")
+							span Help Desk
+					
+					ul.list-unstyled
+						li
+							a(href="#")
+								i.fa-angle-right
+								|  Support Center
+						li
+							a(href="#")
+								i.fa-angle-right
+								|  Submit a Ticket
+						li
+							a(href="#")
+								i.fa-angle-right
+								|  Domains Protocol
+						li
+							a(href="#")
+								i.fa-angle-right
+								|  Terms of Service

@@ -1,8 +1,82 @@
 extends layout
 
 block content
-	.admin-cell
+	// 主体部分
+	.row
+		.col-sm-12
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title 添加文章
+				.panel-body
+					form.form-horizontal(role="form", method="post", action="/admin/article/adding")
+						input(type="hidden", name="article[_id]", value="#{article._id}")
+						.form-group
+							label.col-sm-2.control-label(for="field-1") 标题
+							.col-sm-8
+								input.form-control#field-1(type="text", name="article[title]", value="#{article.title}", placeholder="")
+						.form-group-separator
+						.form-group
+							label.col-sm-2.control-label#tagsinput-1 关键字
+							.col-sm-5
+								input.form-control#tagsinput-1(type="text", data-role="tagsinput", name="article[keywords]", value="#{article.keywords}")
+						.form-group-separator
+						.form-group
+							label.col-sm-2.control-label(for="field-1") 来源
+							.col-sm-2
+								input.form-control#field-1(type="text", name="article[source]", value="#{article.source}", placeholder="")
+						.form-group-separator
+						.form-group
+							label.col-sm-2.control-label(for="field-1") 作者
+							.col-sm-2
+								input.form-control#field-1(type="text", name="article[author]", value="#{article.author}" ,placeholder="")
+						.form-group-separator
+						.form-group
+							label.col-sm-2.control-label 文章分类
+							.col-sm-2
+								select.form-control#sboxit-1(name="article[classify]")
+									option(value="0") CSS知识
+									option(value="1") Javascript
+									option(value="2") HTML5
+									option(value="3") 前端框架
+									option(value="4") Angular
+									option(value="5") React
+						.form-group-separator
+						.form-group
+							label.col-sm-2.control-label 文章类型
+							.col-sm-2
+								select.form-control#sboxit-1(name="article[newsType]")
+									option(value="0") 最新
+									option(value="1") 置顶
+									option(value="2") 精华
+									option(value="3") 热门
+						.form-group-separator
+						.form-group
+							label.col-sm-2.control-label 是否显示
+							.col-sm-2
+								input.iswitch.iswitch-secondary(type="checkbox", name="article[show]", checked)
+						.form-group-separator
+						.form-group
+							label.col-sm-2.control-label 文章内容
+							.col-sm-10
+								textarea#myEditor(name="article[content]", value="#{article.content}", style="width:100%;height:250px;")
+						.form-group-separator
+						.form-group
+							label.col-sm-2.control-label
+							.col-sm-10
+								button.btn.btn-secondary(type="submit") 提 交
+	// 编辑器所需文件
+	link(href="/lib/umeditor/themes/default/_css/umeditor.css",rel="stylesheet")									
+	script(src="/lib/umeditor/umeditor.config.js")
+	script(src="/lib/umeditor/editor_api.js")							
 	script.
-		$(function(){
-			console.log('ss');
+		jQuery(document).ready(function($)
+		{
+			var ums = UM.getEditor('myEditor');  //调用编辑器
+			$("body #sboxit-1").selectBoxIt().on('open', function()
+			{
+				$(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+			});
 		});
+	script(src="/lib/jquery-ui/jquery-ui.min.js")
+	script(src="/lib/selectboxit/jquery.selectBoxIt.min.js")
+	script(src="/lib/tagsinput/bootstrap-tagsinput.min.js")

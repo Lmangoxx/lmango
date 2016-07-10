@@ -1,6 +1,6 @@
 require.config({
 	paths: {
-		jquery : "lib/jquery-1.7.2.min",
+		jquery : "/lib/jquery-1.11.1.min",
 		model : "model/model",
 		let_it_snow : "lib/jquery.let_it_snow"
 	},

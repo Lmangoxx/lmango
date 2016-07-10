@@ -7,7 +7,7 @@ var _ = require('underscore');  //引入underscore，作用：用新的字段替
 var port = process.env.PORT || 3000;   //端口设置（process.env.PORT在shell环境下设置端口）
 var app = express();  //设置服务
 var index_title = "Lmango - 前端小学生 - 个人博客";
-var admin_title = "后台管理 - Lmango";
+var admin_title = "后台管理系统 - Lmango";
 
 mongoose.connect('mongodb://localhost/lmango');   //数据库名称lmango
 
@@ -26,6 +26,7 @@ var emptyArticle = {
 	classify : '',   //文章分类
 	keywords : '',   //关键字
 	newsType : '',   //文章类型(置顶，热门，精华之类)
+	show : '',       //是否显示
 	content : ''     //文章内容
 }
 
@@ -63,6 +64,44 @@ app.get('/admin/article/add',function (req, res){
 		article : emptyArticle
 	});
 })
+
+//后台添加新文章
+app.post('/admin/article/adding', function (req, res) {
+    var articleObj = req.body.article;
+    var id = articleObj._id;
+    var _article;
+    if (id != 'undefined') {
+        Article.findById(id, function (err, article) {
+            if (err) {
+                console.log(err);
+            }
+            _article = _.extend(article, articleObj);
+            _article.save(function (err, article) {
+                if (err) {
+                    console.log(err);
+                }
+                // res.redirect('/detail/' + movie._id);  跳转到某个页面
+            });
+        });
+    } else {
+        _article = new Article({
+            title : articleObj.title,      //文章标题
+			author : articleObj.author,     //作者
+			source : articleObj.source,     //文章来源
+			classify : articleObj.classify,   //文章分类
+			keywords : articleObj.keywords,   //关键字
+			newsType : articleObj.newsType,   //文章类型(置顶，热门，精华之类)
+			show : articleObj.show,       //是否显示
+			content : articleObj.content     //文章内容
+        });
+        _article.save(function (err, article) {
+            if (err) {
+                console.log(err);
+            }
+            // res.redirect('/detail/' + movie._id);
+        });
+    }
+});
 
 //监控打印
 app.listen(port);  //监听端口
