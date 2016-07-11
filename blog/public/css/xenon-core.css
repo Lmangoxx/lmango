@@ -789,12 +789,12 @@ body {
 .sidebar-menu {
   display: table-cell;
   position: relative;
-  width: 340px;
+  width: 280px;
   background: #2c2e2f;
   z-index: 1;
 }
 .sidebar-menu .logo-env {
-  padding: 30px 45px;
+  padding: 30px 40px;
   border-bottom: 1px solid #313437;
 }
 .sidebar-menu .logo-env .logo {
@@ -820,8 +820,8 @@ body {
   color: #ffffff;
 }
 .sidebar-menu .main-menu {
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
   margin-top: 20px;
   margin-bottom: 20px;
   list-style: none;

@@ -80,7 +80,7 @@ app.post('/admin/article/adding', function (req, res) {
                 if (err) {
                     console.log(err);
                 }
-                // res.redirect('/detail/' + movie._id);  跳转到某个页面
+                res.redirect('/admin/article/add');  //跳转到某个页面
             });
         });
     } else {
@@ -98,7 +98,7 @@ app.post('/admin/article/adding', function (req, res) {
             if (err) {
                 console.log(err);
             }
-            // res.redirect('/detail/' + movie._id);
+            res.redirect('/admin/article/add');  //跳转到某个页面
         });
     }
 });
