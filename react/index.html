@@ -13,6 +13,11 @@
     <script src="https://facebook.github.io/react/js/babel-browser.min.js"></script>
     <script type="text/babel">
       var InputFocus = React.createClass({
+          getInitialState : function(){
+            return {
+              userInput : ''
+            };
+          },
           handleChange: function(e) {
             this.setState({ userInput: e.target.value });
           },
@@ -23,10 +28,12 @@
           },
           render : function(){
             return (
-                <div onClick={this.clearAndFocusInput.bind(this)}>
-                  Click to Focus and Reset
+                <div>
+                  <div onClick={this.clearAndFocusInput}>
+                    Click to Focus and Reset
+                  </div>
+                  <input type="text" ref="theInput" value={this.state.userInput} onChange={this.handleChange} />
                 </div>
-                <input type="text" ref="theInput" value={this.state.userInput} onChange={this.handleChange.bind(this)} />
             )
           }
       });
