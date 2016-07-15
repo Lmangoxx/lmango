@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>my react</title>
+	<script src="bower_components/react/react.min.js"></script>
+	<script src="bower_components/react/react-dom.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+<body>
+	<div id="content"></div>
+	<script type="text/babel">
+		let as = [1,2,3,4];
+		console.log(...as);
+		var HeaderDom = React.createClass({
+			render : function(){
+				return (
+					<div>{this.props.name}</div>
+				);
+			}
+		});
+		var Content = React.createClass({
+			getInitialState : function(){
+				return {name: '',names : ['Lmango','韩学良','277040350@qq.com']}
+			},
+			onChange : function(e){
+				this.setState({name : e.target.value});
+			},
+			handleSubmit : function(e){
+				e.preventDefault();
+				this.setState({name : '',names : this.state.names.concat([this.state.name])});
+				this.refs.input.value = '';
+			},
+			render : function(){
+				var li = function(name){
+					return <li>{name}</li>
+				}
+				return (
+					<div>
+						<HeaderDom />
+						<ul>{this.state.names.map(li)}</ul>
+						<form onSubmit={this.handleSubmit}>
+				          <input ref="input" onChange={this.onChange} />
+				          <button>添加</button>
+				        </form>
+					</div>
+				);
+			}
+		});
+		ReactDOM.render(
+			<Content name="测试" />,
+			document.getElementById('content')
+		);
+	</script>
+</body>
+</html>
