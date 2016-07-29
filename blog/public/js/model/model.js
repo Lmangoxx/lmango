@@ -99,6 +99,18 @@ define(['jquery'],function($){
 				}
 			]
 		],
+		"baoyu" : [
+			[
+				'canvas',
+				{ 
+					speed : 15,
+					interaction : false,
+					count : 500,
+					size : 0,
+					windPower : 0
+				}
+			]
+		],
 		"yin" : [
 			[]
 		]
