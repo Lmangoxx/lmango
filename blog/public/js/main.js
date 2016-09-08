@@ -46,7 +46,7 @@ require(['jquery','model','let_it_snow'],function($,model){
 			}else{
 				for(var i = 0, length = model.length; i < length; i++ ){
 					var m = model[i],
-						div = $('<div class="'+m[0]+'" id="'+m[0]+'" top="'+m[1].top+'" min-move="'+m[1].minMove+'" max-move="'+m[1].maxMove+'">');
+						div = $('<div style="opacity:0;" class="'+m[0]+'" id="'+m[0]+'" top="'+m[1].top+'" min-move="'+m[1].minMove+'" max-move="'+m[1].maxMove+'">');
 					$("#sky-box").append(div);
 				}
 				this.upData();
@@ -61,7 +61,7 @@ require(['jquery','model','let_it_snow'],function($,model){
 					min = $this.attr("min-move") * 1,
 					max = $this.attr("max-move") * 1,
 					time = (max - min) < 0 ? -(max - min) * 20 : (max - min) * 20;
-				$this.css({"top" : top, "left" : rand(min,max)}).animate({"left" : rand(min,max)},time);   //初始化云朵位置
+				$this.css({"top" : top, "left" : rand(min,max)}).animate({"opacity": 1}, 1000, function(){ $this.animate({"left" : rand(min,max)},time);});   //初始化云朵位置
 				myTime[index] = setInterval(function(){
 					$this.stop(true).animate({
 						"left": rand(min,max)

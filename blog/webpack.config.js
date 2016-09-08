@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');  //webpack默认插件，用途是提取js公共代码到common.js中
 
 module.exports = {
     //插件项
