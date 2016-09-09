@@ -124,7 +124,6 @@ define(['jquery'],function($){
 			]
 		],
 		"yin" : [
-			[]
 		]
 	}
 });
