@@ -62,7 +62,7 @@ require(['jquery','Lmango','model','let_it_snow'],function($,Lmango,model){
 					min = $this.attr("min-move") * 1,
 					max = $this.attr("max-move") * 1,
 					time = (max - min) < 0 ? -(max - min) * 20 : (max - min) * 20;
-				$this.css({"top" : top, "left" : rand(min,max)}).animate({"opacity": 1}, 1000, function(){ $this.animate({"left" : rand(min,max)},time);});   //初始化云朵位置
+				$this.css({"top" : top, "left" : Lmango.rand(min,max)}).animate({"opacity": 1}, 1000, function(){ $this.animate({"left" : Lmango.rand(min,max)},time);});   //初始化云朵位置
 				myTime[index] = setInterval(function(){
 					$this.stop(true).animate({
 						"left": Lmango.rand(min,max)
