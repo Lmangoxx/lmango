@@ -171,17 +171,21 @@ canvas#canvas { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-inde
 	        transform-origin : 50% bottom;
 	-webkit-transform : rotateX(90deg);
 	        transform : rotateX(90deg);
-	-webkit-animation : rotate 1s ease;
-	        animation : rotate 1s ease;
+	-webkit-animation : rotate 1s .5s ease;
+	        animation : rotate 1s .5s ease;
 	-webkit-animation-fill-mode : forwards;
 	        animation-fill-mode : forwards;
 	will-change : transform;
+	-webkit-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+	opacity: 0;
 }
 @-webkit-keyframes rotate {
 	from{
 		
 	}
 	to{
+		opacity: 1;
 		-webkit-transform : rotateX(0deg);
 		-ms-transform : rotateX(0deg);
 		transform : rotateX(0deg);
@@ -192,6 +196,7 @@ canvas#canvas { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-inde
 		
 	}
 	to{
+		opacity: 1;
 		-webkit-transform : rotateX(0deg);
 		-ms-transform : rotateX(0deg);
 		transform : rotateX(0deg);
