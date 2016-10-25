@@ -15,6 +15,22 @@
 		for(let [key,val] of map){
 			console.log(key+' is '+val);
 		}
+		String.method('deentityify',function(){
+			var entity = {
+				quot: '"',
+				lt  : '<',
+				gt  : '>'
+			};
+			return function(){
+				return this.replace(/&([^&;]+);/g,
+					function (a,b) {
+						var r = entity[b];
+						return typeof r === 'string' ? r : a;
+					}
+				);
+			};
+		}());
+		document.writeln('&lt;&quot;&gt;'.deentityify());
 	</script>
 </body>
 </html>

@@ -2,6 +2,27 @@
 
 /********/
 define(["jquery"],function($){
+	/*
+	 @ 字符串部分修饰（ex:134****2134）
+	 @ dome  : 所有属性带data-truncate的标签
+	 @ param : data-truncate(必须)--要截取的字符串
+	 @ param : data-truncate-type(非必须，array类型|默认[0,1])--第一个代表要开始截取的位置，第二个代表要截取的长度
+	 @ return: string类型
+	 */
+	$("body *[data-truncate]").each(function(event){
+		function tru(s,n){
+			var h = '';
+			for (var i = 0; i < n; i++) {
+				h+=s;
+			};
+			return h;
+		}
+		var $this = $(this),
+			$num  = $this.data("truncate").toString(),
+			$type = $this.data("truncate-type") || [0,1],
+			str   = $num.substring(0,$type[0]-1) + tru("*",$type[1]) + $num.substring( ($type[0] + $type[1] -1) );
+		$this.text(str);
+	});
 	var Lmango = { 
 		/**
 		 * rand()获取随机数（整数|如果不是整数，判断并作转换）
