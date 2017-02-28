@@ -94,6 +94,7 @@ app.post('/admin/article/adding', function (req, res) {
 			show : articleObj.show,       //是否显示
 			content : articleObj.content     //文章内容
         });
+        console.log(articleObj.show);
         _article.save(function (err, article) {
             if (err) {
                 console.log(err);

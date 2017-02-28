@@ -9,7 +9,7 @@ var ArticleSchema = new mongoose.Schema({
 	newsType : Number,   //文章类型(置顶，热门，精华之类)
 	content : String,    //文章内容
 	clickNum : Number,   //浏览次数
-	show : Boolean,      //是否显示
+	show : Number,      //是否显示
 	meta : {
 		createAt : {
 			type : Date,
